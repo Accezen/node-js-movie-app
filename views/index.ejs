@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Data Tags -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Page Title -->
+<title>Home</title>
+<!-- Stylesheets from local and CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="nav">
+            <p class="logo">MOVIES</p>
+        </div>
+        <div class="main-container">
+            <div class="upper-container">
+                <p class="sub-heading">
+                    List of Movie
+                </p>
+                <button type="button" class="btn btn-primary addMovie" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus m-1"></i>Add Movie</button>
+            </div>
+
+            <div class="movie-cards ">
+               <% var data = JSON.parse(data); %>
+               <% if (data.movies.length != 0 ) { %> 
+               <% for (var i = 0 ; i < data.movies.length ;i++) { %>
+
+                <div class="main-card">
+                    <div class="img-container">
+                         <a class="img-card" href="/index/<%= data.movies[i].id %>">
+                        <img src="<%= data.movies[i].image %>">
+                    </div>
+                    <div class="movie-details"> 
+                        <div class="date-genre">
+                            <p class="date-released">Date Released:</p>
+                            <p class="genre"><%= data.movies[i].date %></p>
+                        </div>
+
+                        <div class="movie-title">
+                            <p class="title"><%= data.movies[i].title %></p>
+                        </div> 
+                        <div class="btn-grp">
+                            <a class="img-card" href="/index/<%= data.movies[i].id %>"><button class="view-details btn">Details</button></a>
+                            <a class="img-card" href="/edit/<%= data.movies[i].id %>"><button class="edit btn"><i class='bx bxs-pencil'></i></button></a>
+                            <a href="/delete/<%= data.movies[i].id %>"><button class="delete btn"><i class='bx bx-trash-alt'></i></button></a>
+                        </div>   
+                    </div>
+                </div>
+                <% }} else{ %>
+                    <p class = "text-light" style="font-size:16pt; margin-left: 23rem;">No movies to show.</p>
+               <% } %> 
+            </div>
+  
+            <!--Add Movies Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Movies</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/add" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                 <div style="flex-grow: 10;">
+                                      <div>
+                                           <label for="movie_title" class="form-label">Title</label>   
+                                      </div>
+             
+                                      <div>
+                                           <input type="text" class="form-control" name="title" required>    
+                                      </div>
+                                 </div>
+                            </div>
+   
+                            <div class="row">
+                                 <div style="flex-grow: 5;">
+                                      <div>
+                                           <label for="movie_director" class="form-label">Director</label>   
+                                      </div>
+             
+                                      <div>
+                                           <input type="text" class="form-control mb-2" name="director" required>    
+                                      </div>
+                                 </div>
+   
+                            <div style="flex-grow: 5;">
+                                      <div>
+                                           <label for="movie_date" class="form-label">Date realeased</label>   
+                                      </div>
+             
+                                      <div>
+                                           <input type="date" class="form-control mb-2" name="date" required>    
+                                      </div>
+                                 </div>
+                            </div>
+   
+                            <div class="row">
+                                 <div style="flex-grow: 5;">
+                                      <div>
+                                           <label for="movie_actor" class="form-label">Actors</label>   
+                                      </div>
+             
+                                      <div>
+                                           <textarea class="form-control mb-2" name="actor"></textarea>
+                                      </div>
+                                 </div>
+   
+                                 <div style="flex-grow: 5;">
+                                      <div>
+                                           <label for="movie_plot" class="form-label">Plot</label>   
+                                      </div>
+             
+                                      <div>
+                                           <textarea class="form-control mb-2" name="plot"></textarea> 
+                                      </div>
+                                 </div>
+                            </div>
+   
+                            <div class="row">
+                                 <div style="flex-grow: 5;">
+                                      <div>
+                                           <label for="movie_genre" class="form-label">Genre</label>   
+                                      </div>
+             
+                                      <div>
+                                           <input type="text" class="form-control mb-2" name="genre" required>    
+                                      </div>
+                                 </div>
+   
+                                 <div style="flex-grow: 5;">
+                                      <div>
+                                           <label for="movie_image" class="form-label">Movie Poster</label>   
+                                      </div>
+             
+                                      <div>
+                                           <input type="file" class="form-control mb-2" name="movie_image" required>    
+                                      </div>
+                                 </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                       </form>
+                    </div> 
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>  
+</body>
+</html>

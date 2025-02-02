@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Data Tags -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Page Title -->
+<title>Movie Details</title>
+<!-- Stylesheets from local and CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="wrapper-container" style ="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(10, 12, 15, 0.937)),url('<%= image %>');">
+    </div>
+    <div class="nav">
+        <p class="logo">MOVIES</p>
+    </div>
+    <div class="navigator">
+        <a href="/"><i class='bx bx-chevron-left'></i>Back</a>
+    </div>
+    <div class="details-container">
+        <div class="img-box">
+            <img src="<%= image %>" alt="" srcset="">
+        </div>
+        <div class="mov-details">
+            <p class="movie-title"><%= title %></p>
+            <div class="genre-date">
+                <span class="genre"><%= genre %></span>
+                <span class="date"><%= date %></span>
+            </div>
+            <br>
+            <p><b>Overview</b></p>
+            <p class="plot"><%= plot %></p>
+            <p class="director"><b>Directed by: </b><%= director %></p>
+            <p class="casts"><b>Casts: </b><%= actors %></p>
+        </div>
+
+    </div>
+
+    
+    
+</body>
+</html>

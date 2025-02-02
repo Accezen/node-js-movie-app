@@ -1,0 +1,26 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "title": "Interstellar",
+      "plot": "Earth's future has been riddled by disasters, famines, and droughts. There is only one way to ensure mankind's survival: Interstellar travel. A newly discovered wormhole in the far reaches of our solar system allows a team of astronauts to go where no manhas gone before, a planet that may have the right environment to sustain human life. ",
+      "director": "Christopher Nolan",
+      "date": "2021-11-10",
+      "actors": "Matt Damon, Jessica Chastain, Matthew McConaughey, Timothee Chalamet ",
+      "genre": "Adventure",
+      "image": "/images/img1.jpg"
+    },
+
+    {
+      "id": "2",
+      "title": "Black Adam Black Adam Black Adam Black Adam Black Adam",
+      "plot": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
+      "director": "Elizabeth Ramsey",
+      "date": "2022-10-19",
+      "actors": " Dwayne Johnson, Noah Centineo, Sarah Shahi, Aldis Hodge, Quintessa Swindell",
+      "genre": "Fantasy, Adventure, Action, Romance",
+      "image": "/images/img2.jpg"
+    }
+
+  ]
+}
